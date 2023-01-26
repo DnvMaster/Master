@@ -25,8 +25,8 @@ class MasterController extends Controller
         $this->vars = Arr::add($this->vars,'title',$this->title);
         $this->vars = Arr::add($this->vars,'description',$this->description);
         $this->vars = Arr::add($this->vars,'keywords',$this->keywords);
-        $topNav = view(env('MASTER').'.topNav')->render();
-        $this->vars = Arr::add($this->vars,'topNav',$topNav);
+        $navigation = view(env('MASTER').'.navigation')->render();
+        $this->vars = Arr::add($this->vars,'navigation',$navigation);
         $navBar = view(env('MASTER').'.navBar')->render();
         $this->vars = Arr::add($this->vars,'navBar',$navBar);
         $footer = view(env('MASTER').'.footer')->render();

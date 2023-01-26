@@ -21,6 +21,7 @@
         </div>
     </div>
     <!-- Loader end -->
+    @yield('navigation')
     <!-- Include Js files -->
     <script src="{{ asset(env('MASTER')) }}/js/jquery.min.js"></script>
     <script src="{{ asset(env('MASTER')) }}/js/bootstrap.min.js"></script>
