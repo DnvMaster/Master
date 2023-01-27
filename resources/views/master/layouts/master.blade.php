@@ -10,6 +10,7 @@
     <meta name="keywords" content="{{ (isset($keywords)) ? $keywords : 'Поиск мастеров и специалистов по выполнению задач ...' }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset(env('MASTER')) }}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset(env('MASTER')) }}/css/font-awesome.css">
     <link rel="stylesheet" href="{{ asset(env('MASTER')) }}/css/style.css">
     <link rel="stylesheet" href="{{ asset(env('MASTER')) }}/css/default.css">
 </head>
