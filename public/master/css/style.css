@@ -1,5 +1,5 @@
 /* ==========================
-///       preloader.css     ///
+///       preloader       ///
  ========================== */
 #preloader {
     position: fixed;
@@ -40,9 +40,93 @@
     transform: rotate(360deg);
     }
 }
-/* --- Menu navigation --- */
+/* ==========================
+///       navigation       ///
+ ========================== */
 .navbar-logo img {
     max-width: 100%;
     margin-left: 15px;
     max-height: 50px;
+}
+.navbar-top {
+    background: #FFFFFF;
+    border: none;
+    border-radius: 0;
+    padding: 0 0 0 0;
+    margin-bottom: 0;
+    box-shadow: 0 3px 6px 0 rgba(0,25,65,0.7);
+    -webkit-box-shadow:  0 3px 6px 0 rgba(0,25,65,0.7);
+    -moz-box-shadow:  0 3px 6px 0 rgba(0,25,65,0.7);
+    -o-box-shadow:  0 3px 6px 0 rgba(0,25,65,0.7);
+}
+.head-nav {
+    background: #FFFFFF;
+    padding: 20px 0 20px 0;
+}
+.head-nav .navbar-toggle .icon-bar {
+    background-color: #001941;
+}
+.bar-icon {
+    border: none;
+    background: #FFFFFF;
+}
+.navbar-nav {
+    margin: 0;
+}
+.navbar-top .nav-links {
+    padding: 15px 5px 15px 5px;
+}
+.navbar-top .nav-links li a {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #001941;
+    border: none;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+}
+.navbar-top .nav-links li a i {
+    font-size: 9px;
+    font-weight: 400;
+}
+.navbar-top .nav-links li a:hover {
+    color: #800000;
+}
+/* --- String search --- */
+.navbar-top .nav-search {
+    padding-top: 20px;
+}
+/* --- Dropdown menu --- */
+.nav-links .dropdown ul {
+    border: none;
+    border-radius: 0;
+    padding: 10px;
+    margin-left: 5px;
+    box-shadow: 0 5px 9px 0 rgba(0,25,65,0.12);
+    -webkit-box-shadow: 0 5px 9px 0 rgba(0,25,65,0.12);
+    -moz-box-shadow: 0 5px 9px 0 rgba(0,25,65,0.12);
+    -o-box-shadow: 0 5px 9px 0 rgba(0,25,65,0.12);
+}
+.nav-links .dropdown ul li {
+    padding: 0;
+    border: none;
+}
+.nav-links .dropdown ul li a {
+    font-size: 12px;
+    font-weight: 400;
+    padding: 8px;
+    width: 200px;
+    text-transform: uppercase;
+    text-align: left;
+    color: #000945;
+}
+.nav-links .dropdown ul li a:hover {
+    background: #800000;
+    color: #FFFFFF !important;
+}
+.active-link a {
+    color: #800000 !important;
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: transparent;
 }
