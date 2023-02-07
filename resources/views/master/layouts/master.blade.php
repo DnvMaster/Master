@@ -15,15 +15,12 @@
     <link rel="stylesheet" href="{{ asset(env('MASTER')) }}/css/default.css">
 </head>
 <body>
-    <!-- Loader start -->
     <div id="preloader">
         <div class="row loader">
             <div class="loaderIcon"></div>
         </div>
     </div>
-    <!-- Loader end -->
     @yield('navigation')
-    <!-- Include Js files -->
     <script src="{{ asset(env('MASTER')) }}/js/jquery.min.js"></script>
     <script src="{{ asset(env('MASTER')) }}/js/bootstrap.min.js"></script>
     <script src="{{ asset(env('MASTER')) }}/js/settings.js"></script>

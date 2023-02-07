@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -9,7 +10,7 @@ class IndexController extends MasterController
 {
     public function __construct()
     {
-        parent::__construct();
+        parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu()));
         $this->bar = 'right';
         $this->template = env('MASTER').'.index';
     }
@@ -18,11 +19,8 @@ class IndexController extends MasterController
         $this->title = 'DnvMaster - Онлайн сервис домашних услуг';
         $this->keywords = 'Поиск мастеров и специалистов по выполнению задач: мастера, курьеры, фрилансеры, уборщики, грузчики, грузоперевозчики, сборщики мебели, сантехники, электрики, маляры, штукатуры, поклейщики обоев, установщики дверей';
         $this->description = 'Сервис, мастера, курьеры, фрилансеры, уборщики, грузчики, грузоперевозчики, сборщики мебели, сантехники, электрики, маляры, штукатуры, поклейщики обоев, установщики дверей ...';
-        $banner = view(env('MASTER').'.banner')->render();
-        $this->vars = Arr::add($this->vars,'banner',$banner);
-        $content = view(env('MASTER').'.content')->render();
-        $this->vars = Arr::add($this->vars,'content',$content);
-        return $this->renderOutput();
+
+        return $this->Output();
     }
 
     /**
