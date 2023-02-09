@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Menu;
 use App\Repositories\MenusRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -30,15 +31,21 @@ class MasterController extends Controller
 
         $menu = $this->menu();
 
-        $navigation = view(env('MASTER').'.navigation')->render();
+        $navigation = view(env('MASTER').'.navigation')->with('menu',$menu)->render();
         $this->vars = Arr::add($this->vars,'navigation',$navigation);
 
         return view($this->template)->with($this->vars);
     }
-
-    protected function menu()
+    public function menu()
     {
         $menu = $this->menus_repository->get();
-        return $menu;
+        $mBuilder = Menu::make('Navigation', function($m) use($menu) {
+            foreach($menu as $item) {
+                if($item->parent == 0) {
+                    $m->add($item->title,$item->way)->id($item->id);
+                }
+            }
+        });
+        return $mBuilder;
     }
 }
