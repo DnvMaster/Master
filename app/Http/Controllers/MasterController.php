@@ -29,8 +29,10 @@ class MasterController extends Controller
         $this->vars = Arr::add($this->vars,'description',$this->description);
         $this->vars = Arr::add($this->vars,'keywords',$this->keywords);
 
-        $menu = $this->menu();
+        $top = view(env('MASTER').'.top')->render();
+        $this->vars = Arr::add($this->vars,'top',$top);
 
+        $menu = $this->menu();
         $navigation = view(env('MASTER').'.navigation')->with('menu',$menu)->render();
         $this->vars = Arr::add($this->vars,'navigation',$navigation);
 
