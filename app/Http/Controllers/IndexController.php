@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Menu;
+use App\Repositories\SlidersRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
 class IndexController extends MasterController
 {
-    public function __construct()
+    public function __construct(SlidersRepository $slidersRepository)
     {
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu()));
+        $this->sliders_repository = $slidersRepository;
         $this->bar = 'right';
         $this->template = env('MASTER').'.index';
     }
@@ -20,9 +22,17 @@ class IndexController extends MasterController
         $this->keywords = 'Поиск мастеров и специалистов по выполнению задач: мастера, курьеры, фрилансеры, уборщики, грузчики, грузоперевозчики, сборщики мебели, сантехники, электрики, маляры, штукатуры, поклейщики обоев, установщики дверей';
         $this->description = 'Сервис, мастера, курьеры, фрилансеры, уборщики, грузчики, грузоперевозчики, сборщики мебели, сантехники, электрики, маляры, штукатуры, поклейщики обоев, установщики дверей ...';
 
+        $slidersItems = $this->someSliders();
+        $sliders = view(env('MASTER').'.sliders')->with('sliders',$slidersItems)->render();
+        $this->vars = Arr::add($this->vars,'sliders',$sliders);
         return $this->Output();
     }
 
+    public function SomeSliders()
+    {
+        $sliders = $this->sliders_repository->get();
+        return $sliders;
+    }
     /**
      * Show the form for creating a new resource.
      *
